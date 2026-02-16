@@ -1,0 +1,27 @@
+{
+	"required": true,
+	"package": "net.denanu.geckoboyarrowtweaks.mixin",
+	"compatibilityLevel": "JAVA_21",
+	"mixins": [
+		"AbstractArrowAccessor",
+		"AbstractCowMixin",
+		"AbstractHorseMixin",
+		"BlocksMixin",
+		"BoggedMixin",
+		"CreativeModeTabsMixin",
+		"CreativeModTabOutputMixin",
+		"ItemsMixin",
+		"MobMixin",
+		"ParchedMixin",
+		"PigMixin",
+		"PlayerMixin",
+		"SheepMixin",
+		"StrayMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	},
+	"overwrites": {
+		"requireAnnotations": true
+	}
+}

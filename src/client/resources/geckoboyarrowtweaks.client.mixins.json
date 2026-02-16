@@ -1,0 +1,14 @@
+{
+	"required": true,
+	"package": "net.denanu.geckoboyarrowtweaks.mixin.client",
+	"compatibilityLevel": "JAVA_21",
+	"client": [
+		"ArrowRendererAccessor",
+		"ClientDebugSubscriberMixin",
+		"DebugRendererMixin",
+		"MinecraftMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}

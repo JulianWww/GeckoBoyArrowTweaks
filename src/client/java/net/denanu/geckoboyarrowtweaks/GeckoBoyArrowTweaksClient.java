@@ -1,0 +1,15 @@
+package net.denanu.geckoboyarrowtweaks;
+
+import net.denanu.geckoboyarrowtweaks.gui.screens.ModMenuScreens;
+import net.denanu.geckoboyarrowtweaks.item.tooltip.ArrowTooltips;
+import net.denanu.geckoboyarrowtweaks.renderer.entity.ModEntityRenderers;
+import net.fabricmc.api.ClientModInitializer;
+
+public class GeckoBoyArrowTweaksClient implements ClientModInitializer {
+	@Override
+	public void onInitializeClient() {
+		ModMenuScreens.load();
+		ModEntityRenderers.load();
+		ArrowTooltips.load();
+	}
+}
