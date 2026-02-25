@@ -26,10 +26,14 @@ jobs:
           echo "VERSION=$(./gradlew properties | grep '^version:' | awk '{print $NF}' )" >> $GITHUB_ENV
           echo "NAME=$(./gradlew properties | grep '^archives_base_name:' | awk '{print $NF}' )" >> $GITHUB_ENV
           
-      - name: Test
-        run: echo $NAME
       - name: build
         run: ./gradlew build
+
+      - name: Test
+        run: ls build/libs
+      - name: Test
+        run: echo build/libs/${NAME}-${VERSION}-sources.jar
+        
       - name: Upload build
         uses: actions/upload-artifact@v4
         with:
