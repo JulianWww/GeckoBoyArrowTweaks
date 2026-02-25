@@ -4,9 +4,7 @@
 	"compatibilityLevel": "JAVA_21",
 	"client": [
 		"ArrowRendererAccessor",
-		"ClientDebugSubscriberMixin",
-		"DebugRendererMixin",
-		"MinecraftMixin"
+		"DebugRendererMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

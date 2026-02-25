@@ -10,6 +10,7 @@ import net.minecraft.world.inventory.MenuType;
 
 public class ModMenuType {
 	public static final MenuType<FletchingMenu> FLETCHING = register("fleching", FletchingMenu::new);
+	public static final MenuType<QuiverMenu> QUIVER = register("quiver", QuiverMenu::new);
 
 	private static <T extends AbstractContainerMenu> MenuType<T> register(String string, MenuType.MenuSupplier<T> menuSupplier) {
 		return Registry.register(BuiltInRegistries.MENU, Identifier.fromNamespaceAndPath(GeckoBoyArrowTweaks.MOD_ID, string), new MenuType<>(menuSupplier, FeatureFlags.VANILLA_SET));

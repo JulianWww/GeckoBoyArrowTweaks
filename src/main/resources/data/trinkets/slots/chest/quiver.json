@@ -1,0 +1,5 @@
+{
+	"icon": "geckoboyarrowtweaks:gui/sprites/trinkets/chest/quiver",
+	"order": -276,
+	"validator_predicates": ["trinkets:tag"]
+}

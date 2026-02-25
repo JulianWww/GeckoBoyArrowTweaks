@@ -11,18 +11,30 @@ base {
 }
 
 repositories {
-	// Add repositories to retrieve artifacts from in here.
-	// You should only use this when depending on other mods because
-	// Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
-	// See https://docs.gradle.org/current/userguide/declaring_repositories.html
-	// for more information about repositories.
+	exclusiveContent {
+        forRepository {
+            maven {
+                name = "Modrinth"
+                url = "https://api.modrinth.com/maven"
+            }
+        }
+        
+        filter {
+            includeGroup "maven.modrinth"
+        }
+    }
+    
+     maven {
+        name = 'Ladysnake Mods'
+        url = 'https://maven.ladysnake.org/releases'
+    }
 }
 
 loom {
 	splitEnvironmentSourceSets()
 
 	mods {
-		"geckoboyarrowtweaks" {
+		archives_base_name {
 			sourceSet sourceSets.main
 			sourceSet sourceSets.client
 		}
@@ -44,8 +56,13 @@ dependencies {
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
+	modImplementation "maven.modrinth:trinkets-updated:${trinkets_version}"
 
 	implementation "org.apache.commons:commons-math3:3.6.1"
+	
+	modImplementation "org.ladysnake.cardinal-components-api:cardinal-components-base:${cardinal_version}"
+    // Adds a dependency on a specific module
+    modImplementation "org.ladysnake.cardinal-components-api:cardinal-components-entity:${cardinal_version}"
 	
 }
 

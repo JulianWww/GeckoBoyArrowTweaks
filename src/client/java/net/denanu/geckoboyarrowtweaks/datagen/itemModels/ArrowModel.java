@@ -1,20 +1,15 @@
 package net.denanu.geckoboyarrowtweaks.datagen.itemModels;
 
-import net.denanu.geckoboyarrowtweaks.GeckoBoyArrowTweaks;
 import net.denanu.geckoboyarrowtweaks.serializers.ModDataComponents;
 import net.denanu.geckoboyarrowtweaks.utils.ModItemUtils;
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
-import net.minecraft.client.color.item.Potion;
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.model.ItemModelUtils;
-import net.minecraft.client.data.models.model.ModelTemplates;
-import net.minecraft.client.data.models.model.TextureMapping;
 import net.minecraft.client.renderer.item.ItemModel;
 import net.minecraft.client.renderer.item.properties.conditional.HasComponent;
 import net.minecraft.client.renderer.item.properties.select.ComponentContents;
-import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Items;
 
 public class ArrowModel extends FabricModelProvider {
@@ -28,28 +23,28 @@ public class ArrowModel extends FabricModelProvider {
 
 	@Override
 	public void generateItemModels(ItemModelGenerators gen) {
-		ItemModel.Unbaked feather_fletching = getLayer(gen, Identifier.fromNamespaceAndPath(GeckoBoyArrowTweaks.MOD_ID, "item/arrow/feathers_fletching"));
-		ItemModel.Unbaked wheat_fletching = getLayer(gen, Identifier.fromNamespaceAndPath(GeckoBoyArrowTweaks.MOD_ID, "item/arrow/wheat_fletching"));
-		ItemModel.Unbaked membrane_fletching = getLayer(gen, Identifier.fromNamespaceAndPath(GeckoBoyArrowTweaks.MOD_ID, "item/arrow/membrane_fletching"));
+		ItemModel.Unbaked feather_fletching = ModItemModelUtils.getLayer(gen, "item/arrow/feathers_fletching");
+		ItemModel.Unbaked wheat_fletching = ModItemModelUtils.getLayer(gen, "item/arrow/wheat_fletching");
+		ItemModel.Unbaked membrane_fletching = ModItemModelUtils.getLayer(gen, "item/arrow/membrane_fletching");
 
-		ItemModel.Unbaked stick_shaft = getLayer(gen, Identifier.fromNamespaceAndPath(GeckoBoyArrowTweaks.MOD_ID, "item/arrow/stick_shaft"));
-		ItemModel.Unbaked blaze_rod_shaft = getLayer(gen, Identifier.fromNamespaceAndPath(GeckoBoyArrowTweaks.MOD_ID, "item/arrow/blaze_rod_shaft"));
-		ItemModel.Unbaked breeze_rod_shaft = getLayer(gen, Identifier.fromNamespaceAndPath(GeckoBoyArrowTweaks.MOD_ID, "item/arrow/breeze_rod_shaft"));
+		ItemModel.Unbaked stick_shaft = ModItemModelUtils.getLayer(gen, "item/arrow/stick_shaft");
+		ItemModel.Unbaked blaze_rod_shaft = ModItemModelUtils.getLayer(gen, "item/arrow/blaze_rod_shaft");
+		ItemModel.Unbaked breeze_rod_shaft = ModItemModelUtils.getLayer(gen, "item/arrow/breeze_rod_shaft");
 
-		ItemModel.Unbaked no_tip = getLayer(gen, Identifier.fromNamespaceAndPath(GeckoBoyArrowTweaks.MOD_ID, "item/arrow/no_tip"));
-		ItemModel.Unbaked flint_tip = getLayer(gen, Identifier.fromNamespaceAndPath(GeckoBoyArrowTweaks.MOD_ID, "item/arrow/flint_tip"));
-		ItemModel.Unbaked prismarine_tip = getLayer(gen, Identifier.fromNamespaceAndPath(GeckoBoyArrowTweaks.MOD_ID, "item/arrow/prismarine_tip"));
-		ItemModel.Unbaked echo_tip = getLayer(gen, Identifier.fromNamespaceAndPath(GeckoBoyArrowTweaks.MOD_ID, "item/arrow/echo_tip"));
-		ItemModel.Unbaked amatist_tip = getLayer(gen, Identifier.fromNamespaceAndPath(GeckoBoyArrowTweaks.MOD_ID, "item/arrow/amatist_tip"));
+		ItemModel.Unbaked no_tip = ModItemModelUtils.getLayer(gen, "item/arrow/no_tip");
+		ItemModel.Unbaked flint_tip = ModItemModelUtils.getLayer(gen, "item/arrow/flint_tip");
+		ItemModel.Unbaked prismarine_tip = ModItemModelUtils.getLayer(gen, "item/arrow/prismarine_tip");
+		ItemModel.Unbaked echo_tip = ModItemModelUtils.getLayer(gen, "item/arrow/echo_tip");
+		ItemModel.Unbaked amatist_tip = ModItemModelUtils.getLayer(gen, "item/arrow/amatist_tip");
 
-		ItemModel.Unbaked slime_addition = getLayer(gen, Identifier.fromNamespaceAndPath(GeckoBoyArrowTweaks.MOD_ID, "item/arrow/slime_mod"));
-		ItemModel.Unbaked glowstone_addition = getLayer(gen, Identifier.fromNamespaceAndPath(GeckoBoyArrowTweaks.MOD_ID, "item/arrow/glowstone_mod"));
-		ItemModel.Unbaked gunpowder_addition = getLayer(gen, Identifier.fromNamespaceAndPath(GeckoBoyArrowTweaks.MOD_ID, "item/arrow/gunpowder_mod"));
-		ItemModel.Unbaked potion_addition = getTinted(gen, Identifier.fromNamespaceAndPath(GeckoBoyArrowTweaks.MOD_ID, "item/arrow/potion_mod"));
-		ItemModel.Unbaked splash_potion_addition = getTinted(gen, Identifier.fromNamespaceAndPath(GeckoBoyArrowTweaks.MOD_ID, "item/arrow/splash_potion_mod"));
+		ItemModel.Unbaked slime_addition = ModItemModelUtils.getLayer(gen, "item/arrow/slime_mod");
+		ItemModel.Unbaked glowstone_addition = ModItemModelUtils.getLayer(gen, "item/arrow/glowstone_mod");
+		ItemModel.Unbaked gunpowder_addition = ModItemModelUtils.getLayer(gen, "item/arrow/gunpowder_mod");
+		ItemModel.Unbaked potion_addition = ModItemModelUtils.getTinted(gen, "item/arrow/potion_mod");
+		ItemModel.Unbaked splash_potion_addition = ModItemModelUtils.getTinted(gen, "item/arrow/splash_potion_mod");
 		ItemModel.Unbaked lingering_potion_addition = ItemModelUtils.composite(
 				splash_potion_addition,
-				getLayer(gen, Identifier.fromNamespaceAndPath(GeckoBoyArrowTweaks.MOD_ID, "item/arrow/lingering_potion_mod_overlay"))
+				ModItemModelUtils.getLayer(gen, "item/arrow/lingering_potion_mod_overlay")
 				);
 
 		ItemModel.Unbaked fletching_selector = ItemModelUtils.conditional(
@@ -112,16 +107,8 @@ public class ArrowModel extends FabricModelProvider {
 				);
 	}
 
-	private static ItemModel.Unbaked getLayer(ItemModelGenerators gen, Identifier id) {
-		return ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(id, TextureMapping.layer0(id), gen.modelOutput));
-	}
-
-	private static ItemModel.Unbaked getTinted(ItemModelGenerators gen, Identifier id) {
-		return ItemModelUtils.tintedModel(ModelTemplates.FLAT_ITEM.create(id, TextureMapping.layer0(id), gen.modelOutput), new Potion());
-	}
-
 	@Override
 	public String getName() {
-		return GeckoBoyArrowTweaks.MOD_ID + " arrow item model";
+		return "arrow item model";
 	}
 }

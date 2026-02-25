@@ -1,6 +1,7 @@
 package net.denanu.geckoboyarrowtweaks.data.tag;
 import java.util.concurrent.CompletableFuture;
 
+import net.denanu.geckoboyarrowtweaks.items.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.core.HolderLookup.Provider;
@@ -45,5 +46,8 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 		this.valueLookupBuilder(ModItemTags.HOMING_ARROW_CAPABLE_WEAPONS)
 		.add(Items.BOW)
 		.add(Items.CROSSBOW);
+
+		this.valueLookupBuilder(ModItemTags.QIVERS)
+		.add(ModItems.QUIVER);
 	}
 }
