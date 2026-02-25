@@ -20,12 +20,14 @@ jobs:
         run: |
           echo "VERSION=$(cat gradle.properties | grep ^mod_version= | cut -c 13-)" >> $GITHUB_ENV
           echo "NAME=$(cat gradle.properties | grep ^archives_base_name= | cut -c 20-)" >> $GITHUB_ENV
+          echo "MC_VERSION=$(cat gradle.properties | grep ^minecraft_version= | cut -c 19-)" >> $GITHUB_ENV
+          echo "CHANNEL=$(echo $VERSION | sed "s/^[0-9]/release/" | tr -d -c [a-z])" >> $GITHUB_ENV
           
       - uses: actions/download-artifact@v5
         with:
           name: mod
-      - name: Display structure of downloaded files
-        run: ls -R
+      - name: Rename build file
+        run: mv ${{ env.NAME }}-${{ env.VERSION }}.jar ${{ env.NAME }}-${{ env.VERSION }}+mc${{ env.MC_VERSION }}.jar      
 
       - uses: cloudnode-pro/modrinth-publish@v2
         with:
@@ -33,6 +35,6 @@ jobs:
           project: AXlv9DZi
           version: ${{ env.VERSION }}
           loaders: fabric
-          game-versions: 1.21.11
-          files: ${{ env.NAME }}-${{ env.VERSION }}.jar
-          channel: alpha
+          game-versions: ${{ env.MC_VERSION }}
+          files: ${{ env.NAME }}-${{ env.VERSION }}+mc${{ env.MC_VERSION }}.jar
+          channel: $CHANNEL
