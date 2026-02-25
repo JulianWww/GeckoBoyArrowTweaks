@@ -1,5 +1,0 @@
-echo $V
-
-if [[ $V = "alpha"*]]; then
-	echo "yes"
-fi
