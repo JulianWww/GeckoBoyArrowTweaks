@@ -21,6 +21,10 @@ jobs:
           distribution: 'microsoft'
       - name: make gradle wrapper executable
         run: chmod +x ./gradlew
+      - name: Set Mod version
+        run: echo "VERSION=$(./gradlew properties | grep '^version:' | awk '{print $NF}' )" >> $GITHUB_ENV
+      - name: Test
+        run: echo $VERSION
       - name: build
         run: ./gradlew build
       - name: capture build artifacts
