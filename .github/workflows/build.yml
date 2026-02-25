@@ -21,6 +21,12 @@ jobs:
           distribution: 'microsoft'
       - name: make gradle wrapper executable
         run: chmod +x ./gradlew
+
+      - name: data gen
+        run: ./gradlew runDataGen
+
+      - name: build
+        run: ./gradlew build
               
       - name: Upload build
         uses: actions/upload-artifact@v4
