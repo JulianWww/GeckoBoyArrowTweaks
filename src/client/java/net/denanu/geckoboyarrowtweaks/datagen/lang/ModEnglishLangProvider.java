@@ -6,7 +6,9 @@ import java.util.concurrent.CompletableFuture;
 
 import com.google.common.io.Files;
 
+import dev.emi.trinkets.TrinketsMain;
 import net.denanu.geckoboyarrowtweaks.GeckoBoyArrowTweaks;
+import net.denanu.geckoboyarrowtweaks.items.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import net.minecraft.core.HolderLookup;
@@ -34,6 +36,7 @@ public class ModEnglishLangProvider extends FabricLanguageProvider {
 	@Override
 	public void generateTranslations(HolderLookup.Provider wrapper, TranslationBuilder builder) {
 		builder.add("container.fletching", "Craft arrow");
+		builder.add(TrinketsMain.MOD_ID+".slot.chest.quiver", "Quiver");
 
 		builder.add(GeckoBoyArrowTweaks.MOD_ID + ".arrow.fletching.wheat", "Attrackts Animals");
 		builder.add(GeckoBoyArrowTweaks.MOD_ID + ".arrow.fletching.phantom_membrane", "Swift Flying");
@@ -53,6 +56,8 @@ public class ModEnglishLangProvider extends FabricLanguageProvider {
 		builder.add(GeckoBoyArrowTweaks.MOD_ID + ".arrow.shaft.potion", "Tipped");
 		builder.add(GeckoBoyArrowTweaks.MOD_ID + ".arrow.shaft.splash_potion", "Splashing");
 		builder.add(GeckoBoyArrowTweaks.MOD_ID + ".arrow.shaft.lingering_potion", "Lingering");
+
+		builder.add(ModItems.QUIVER, "Quiver");
 
 	}
 }

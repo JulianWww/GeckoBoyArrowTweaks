@@ -8,12 +8,14 @@ import net.denanu.geckoboyarrowtweaks.entity.ModEntities;
 import net.denanu.geckoboyarrowtweaks.entity.player.PlayerModifications;
 import net.denanu.geckoboyarrowtweaks.entity.projectile.arrow.homing.HomingTargetTypes;
 import net.denanu.geckoboyarrowtweaks.inventory.ModMenuType;
+import net.denanu.geckoboyarrowtweaks.items.ModItems;
 import net.denanu.geckoboyarrowtweaks.loot.Events;
 import net.denanu.geckoboyarrowtweaks.loot.functions.ModLootItemFunctions;
 import net.denanu.geckoboyarrowtweaks.networking.ModPackets;
 import net.denanu.geckoboyarrowtweaks.serializers.ModDataComponents;
 import net.denanu.geckoboyarrowtweaks.serializers.ModEntityDataSerializers;
 import net.fabricmc.api.ModInitializer;
+import net.minecraft.resources.Identifier;
 
 public class GeckoBoyArrowTweaks implements ModInitializer {
 	public static final String MOD_ID = "geckoboyarrowtweaks";
@@ -24,6 +26,10 @@ public class GeckoBoyArrowTweaks implements ModInitializer {
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
 	public static final boolean DEBUG = true;
+
+	public static Identifier getId(String name) {
+		return Identifier.fromNamespaceAndPath(MOD_ID, name);
+	}
 
 	@Override
 	public void onInitialize() {
@@ -37,5 +43,6 @@ public class GeckoBoyArrowTweaks implements ModInitializer {
 		PlayerModifications.load();
 		ModPackets.load();
 		ModLootItemFunctions.load();
+		ModItems.load();
 	}
 }
