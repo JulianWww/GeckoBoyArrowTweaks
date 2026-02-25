@@ -38,9 +38,9 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: mod
-          path: build/libs/${NAME}-${VERSION}.jar
+          path: "build/libs/${NAME}-${VERSION}.jar"
       - name: Upload build sources
         uses: actions/upload-artifact@v4
         with:
-          name: mod
-          path: build/libs/${NAME}-${VERSION}-sources.jar
+          name: mod_source
+          path: "build/libs/${NAME}-${VERSION}-sources.jar"
