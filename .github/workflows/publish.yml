@@ -38,3 +38,8 @@ jobs:
           game-versions: ${{ env.MC_VERSION }}
           files: ${{ env.NAME }}-${{ env.VERSION }}+mc${{ env.MC_VERSION }}.jar
           channel: ${{ env.CHANNEL }}
+          dependencies: |-
+            [{
+                "project_id": "XaT8sLP6",
+                "dependency_type": "required"
+            }]
