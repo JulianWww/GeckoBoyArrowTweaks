@@ -2,4 +2,4 @@ project_id: 925429
 api_token_env: CROWDIN_PERSONAL_TOKEN
 files:
   - source: /src/main/resources/assets/geckoboyarrowtweaks/lang/en_us.json
-    translation: /src/main/resources/assets/geckoboyarrowtweaks/lang/%locale%.json
+    translation: /src/main/resources/assets/geckoboyarrowtweaks/lang/%locale_with_underscore%.json
