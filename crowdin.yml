@@ -1,5 +1,5 @@
 project_id: 925429
 api_token_env: CROWDIN_PERSONAL_TOKEN
 files:
-  - source: /src/main/resources/assets/YOUR_MOD_ID/lang/en_us.json
-    translation: /src/main/resources/assets/YOUR_MOD_ID/lang/%locale%.json
+  - source: /src/main/resources/assets/geckoboyarrowtweaks/lang/en_us.json
+    translation: /src/main/resources/assets/geckoboyarrowtweaks/lang/%locale%.json
