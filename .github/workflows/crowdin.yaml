@@ -19,4 +19,5 @@ jobs:
           upload_sources: true
           download_translations: true
         env:
+          GITHUB_TOKEN: ${{ github.token }} 
           CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}
