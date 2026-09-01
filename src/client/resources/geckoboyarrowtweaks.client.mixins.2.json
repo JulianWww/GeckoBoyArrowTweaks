@@ -1,0 +1,26 @@
+{
+	"required": true,
+	"package": "net.denanu.geckoboyarrowtweaks.mixin.client",
+	"compatibilityLevel": "JAVA_25",
+	"client": [
+		"AbstractHorseMixin",
+		"AnimalMixin",
+		"ArrowRendererAccessor",
+		"DebugRendererMixin",
+		"LivingEntityRenderStateMixin",
+		"LlamaModelAccessor",
+		"LlamaModelMixin",
+		"LlamaRendererMixin",
+		"CowRendererMixin",
+		"MushroomCowRendererMixin",
+		"PigRendererMixin",
+		"QuadrupedModelAccessor",
+		"QuadrupedModelMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	},
+	"overwrites": {
+		"requireAnnotations": true
+	}
+}

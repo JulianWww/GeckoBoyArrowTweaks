@@ -6,7 +6,7 @@ import net.denanu.geckoboyarrowtweaks.GeckoBoyArrowTweaks;
 import net.denanu.geckoboyarrowtweaks.inventory.FletchingMenu;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.screens.inventory.CyclingSlotBackground;
 import net.minecraft.client.gui.screens.inventory.ItemCombinerScreen;
 import net.minecraft.network.chat.Component;
@@ -64,18 +64,20 @@ public class FletchingScreen extends ItemCombinerScreen<FletchingMenu> {
 		this.tipIcon.tick(EMPTY_SLOT_TIP);
 		this.additionIcon.tick(EMPTY_SLOT_ADDITION);
 	}
-
+	
 	@Override
-	protected void renderBg(GuiGraphics guiGraphics, float f, int i, int j) {
-		super.renderBg(guiGraphics, f, i, j);
-		this.fletchingIcon.render(this.menu, guiGraphics, f, this.leftPos, this.topPos);
-		this.shaftIcon.render(this.menu, guiGraphics, f, this.leftPos, this.topPos);
-		this.tipIcon.render(this.menu, guiGraphics, f, this.leftPos, this.topPos);
-		this.additionIcon.render(menu, guiGraphics, f, this.leftPos, this.topPos);
+	public void extractBackground(final GuiGraphicsExtractor graphics, final int mouseX, final int mouseY, final float a) {
+		super.extractBackground(graphics, mouseX, mouseY, a);
+		this.fletchingIcon.extractRenderState(this.menu, graphics, a, this.leftPos, this.topPos);
+		this.shaftIcon.extractRenderState(this.menu, graphics, a, this.leftPos, this.topPos);
+		this.tipIcon.extractRenderState(this.menu, graphics, a, this.leftPos, this.topPos);
+		this.additionIcon.extractRenderState(menu, graphics, a, this.leftPos, this.topPos);
 	}
 
 	@Override
-	protected void renderErrorIcon(GuiGraphics guiGraphics, int i, int j) {
+	protected void extractErrorIcon(GuiGraphicsExtractor graphics, int xo, int yo) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

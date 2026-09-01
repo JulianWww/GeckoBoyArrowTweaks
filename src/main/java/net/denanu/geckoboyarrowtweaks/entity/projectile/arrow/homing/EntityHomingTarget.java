@@ -2,7 +2,7 @@ package net.denanu.geckoboyarrowtweaks.entity.projectile.arrow.homing;
 
 import org.jetbrains.annotations.Nullable;
 
-import com.ibm.icu.impl.Pair;
+import com.mojang.datafixers.util.Pair;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 

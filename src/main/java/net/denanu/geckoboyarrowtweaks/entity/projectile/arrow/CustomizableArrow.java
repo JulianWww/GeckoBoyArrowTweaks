@@ -7,7 +7,6 @@ import org.apache.commons.lang3.mutable.MutableBoolean;
 import org.apache.commons.lang3.mutable.MutableByte;
 import org.jspecify.annotations.Nullable;
 
-import net.denanu.geckoboyarrowtweaks.GeckoBoyArrowTweaks;
 import net.denanu.geckoboyarrowtweaks.commands.DEBUG.SetTargetCommand;
 import net.denanu.geckoboyarrowtweaks.entity.ModEntities;
 import net.denanu.geckoboyarrowtweaks.entity.player.PlayerModifications;
@@ -189,7 +188,7 @@ public class CustomizableArrow extends AbstractArrow {
 			doHoming.setValue(doHoming.get() || mod.isHoming());
 			piercing.setValue(piercing.byteValue() + mod.piercing());
 
-			GeckoBoyArrowTweaks.LOGGER.info(mod.toString());
+			// GeckoBoyArrowTweaks.LOGGER.info(mod.toString());
 		});
 		this.entityData.set(IS_UNDERWATER_ARROW, isUnderWater.get());
 		this.setNoGravity(!hasGravity.get());

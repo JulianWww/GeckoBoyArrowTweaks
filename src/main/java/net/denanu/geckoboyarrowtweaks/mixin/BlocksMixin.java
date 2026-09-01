@@ -9,6 +9,7 @@ import com.llamalad7.mixinextras.sugar.Local;
 
 import net.denanu.geckoboyarrowtweaks.blocks.FletchingTableBlock;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.references.BlockItemId;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.block.Block;
@@ -17,10 +18,10 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 
 @Mixin(Blocks.class)
 public class BlocksMixin {
-	@Inject(method="register(Ljava/lang/String;Lnet/minecraft/world/level/block/state/BlockBehaviour$Properties;)Lnet/minecraft/world/level/block/Block;", at=@At(value="HEAD"), cancellable=true)
-	private static void register(CallbackInfoReturnable<Block> ci, @Local String id, @Local BlockBehaviour.Properties properties) {
-		if (id == "fletching_table") {
-			ci.setReturnValue(Blocks.register(ResourceKey.create(Registries.BLOCK, Identifier.withDefaultNamespace(id)), FletchingTableBlock::new, properties));
+	@Inject(method="register(Lnet/minecraft/references/BlockItemId;Lnet/minecraft/world/level/block/state/BlockBehaviour$Properties;)Lnet/minecraft/world/level/block/Block;", at=@At(value="HEAD"), cancellable=true)
+	private static void register(CallbackInfoReturnable<Block> ci, @Local BlockItemId id, @Local BlockBehaviour.Properties properties) {
+		if (id.block().identifier().toShortString() == "fletching_table") {
+			ci.setReturnValue(Blocks.register(id.block(), FletchingTableBlock::new, properties));
 			ci.cancel();
 		}
 	}

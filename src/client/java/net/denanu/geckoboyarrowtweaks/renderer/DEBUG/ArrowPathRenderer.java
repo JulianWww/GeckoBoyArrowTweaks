@@ -2,7 +2,7 @@ package net.denanu.geckoboyarrowtweaks.renderer.DEBUG;
 
 import org.jetbrains.annotations.Nullable;
 
-import com.ibm.icu.impl.Pair;
+import com.mojang.datafixers.util.Pair;
 
 import net.denanu.geckoboyarrowtweaks.entity.player.PlayerModifications;
 import net.denanu.geckoboyarrowtweaks.entity.projectile.arrow.homing.HomingTarget;
@@ -27,6 +27,7 @@ public class ArrowPathRenderer implements DebugRenderer.SimpleDebugRenderer  {
 	@Override
 	public void emitGizmos(double d, double e, double f, DebugValueAccess debugValueAccess, Frustum frustum, float g) {
 		HomingTarget target = Minecraft.getInstance().player.getEntityData().get(PlayerModifications.HOMING_TARGET);
+
 		if (!target.isPresent()) {
 			return;
 		}
@@ -36,7 +37,7 @@ public class ArrowPathRenderer implements DebugRenderer.SimpleDebugRenderer  {
 		if (aimData == null) {
 			return;
 		}
-		Gizmos.line(aimData.first, aimData.first.add(0, 3, 0), COLOR);
+		Gizmos.line(aimData.getFirst(), aimData.getSecond().add(0, 3, 0), COLOR);
 
 
 	}

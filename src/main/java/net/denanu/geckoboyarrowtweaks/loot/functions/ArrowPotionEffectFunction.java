@@ -17,7 +17,6 @@ import net.minecraft.world.item.alchemy.Potion;
 import net.minecraft.world.item.alchemy.PotionContents;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.functions.LootItemConditionalFunction;
-import net.minecraft.world.level.storage.loot.functions.LootItemFunctionType;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 
 public class ArrowPotionEffectFunction extends LootItemConditionalFunction {
@@ -31,14 +30,14 @@ public class ArrowPotionEffectFunction extends LootItemConditionalFunction {
 
 	private WeightedList<Holder<Potion>> effects;
 
+	@Override
+	public MapCodec<? extends LootItemConditionalFunction> codec() {
+		return CODEC;
+	}
+
 	protected ArrowPotionEffectFunction(List<LootItemCondition> list, WeightedList<Holder<Potion>> effects) {
 		super(list);
 		this.effects = effects;
-	}
-
-	@Override
-	public LootItemFunctionType<ArrowPotionEffectFunction> getType() {
-		return ModLootItemFunctions.ARROW_POTION_EFFECTS;
 	}
 
 	@Override
@@ -69,5 +68,4 @@ public class ArrowPotionEffectFunction extends LootItemConditionalFunction {
 					);
 		}
 	}
-
 }

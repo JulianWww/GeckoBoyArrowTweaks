@@ -1,6 +1,6 @@
 package net.denanu.geckoboyarrowtweaks.entity.projectile.arrow.homing;
 
-import com.ibm.icu.impl.Pair;
+import com.mojang.datafixers.util.Pair;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
@@ -32,7 +32,7 @@ public class BlockPosHomingTarget implements HomingTarget {
 
 	@Override
 	public Pair<Vec3, Vec3> getAimData(Level level) {
-		return Pair.of(pos.getCenter(), Vec3.ZERO);
+		return Pair.of(Vec3.atCenterOf(pos), Vec3.ZERO);
 	}
 
 	@Override

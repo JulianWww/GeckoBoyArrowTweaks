@@ -13,7 +13,6 @@ import net.minecraft.world.level.storage.loot.LootTable;
 public class ReplaceWithArrows implements ModifyDrops {
 	@Override
 	public void modifyLootTableDrops(Holder<LootTable> entry, LootContext context, List<ItemStack> drops) {
-		GeckoBoyArrowTweaks.LOGGER.info(entry.getRegisteredName());
 		for (final ListIterator<ItemStack> i = drops.listIterator(); i.hasNext();) {
 			ItemStack stack = i.next();
 			ItemStack nextStack = ArrowLootGenerator.makeArrowStack(stack, context.getRandom());

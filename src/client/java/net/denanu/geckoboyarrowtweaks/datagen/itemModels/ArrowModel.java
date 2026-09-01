@@ -3,7 +3,7 @@ package net.denanu.geckoboyarrowtweaks.datagen.itemModels;
 import net.denanu.geckoboyarrowtweaks.serializers.ModDataComponents;
 import net.denanu.geckoboyarrowtweaks.utils.ModItemUtils;
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.model.ItemModelUtils;
@@ -13,7 +13,7 @@ import net.minecraft.client.renderer.item.properties.select.ComponentContents;
 import net.minecraft.world.item.Items;
 
 public class ArrowModel extends FabricModelProvider {
-	public ArrowModel(FabricDataOutput output) {
+	public ArrowModel(FabricPackOutput output) {
 		super(output);
 	}
 

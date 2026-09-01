@@ -7,10 +7,10 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import net.denanu.geckoboyarrowtweaks.entity.ai.goal.MoveTowardsAndEatHayArrowGoal;
 import net.minecraft.world.entity.PathfinderMob;
-import net.minecraft.world.entity.animal.sheep.Sheep;
+import net.minecraft.world.entity.animal.equine.Llama;
 
-@Mixin(Sheep.class)
-public class SheepMixin extends MobMixin {
+@Mixin(Llama.class)
+public class LlamaMixin extends MobMixin {
 	@Inject(method="registerGoals()V", at=@At(value="TAIL"))
 	void registerGoals(CallbackInfo ci) {
 		PathfinderMob mob = (PathfinderMob)(Object)this;

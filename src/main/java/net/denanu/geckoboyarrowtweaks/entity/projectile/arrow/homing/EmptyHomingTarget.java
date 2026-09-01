@@ -2,7 +2,7 @@ package net.denanu.geckoboyarrowtweaks.entity.projectile.arrow.homing;
 
 import java.util.stream.Stream;
 
-import com.ibm.icu.impl.Pair;
+import com.mojang.datafixers.util.Pair;
 import com.mojang.serialization.DataResult;
 import com.mojang.serialization.DynamicOps;
 import com.mojang.serialization.MapCodec;

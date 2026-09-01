@@ -19,7 +19,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.functions.LootItemConditionalFunction;
-import net.minecraft.world.level.storage.loot.functions.LootItemFunctionType;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 
 public class ArrowCustomizeShaftFunction extends LootItemConditionalFunction {
@@ -41,6 +40,11 @@ public class ArrowCustomizeShaftFunction extends LootItemConditionalFunction {
 	private Optional<WeightedList<Holder<Item>>> tipMods;
 	private Optional<WeightedList<Holder<Item>>> fletchingMods;
 	private Optional<WeightedList<Holder<Item>>> additionMods;
+	
+	@Override
+	public MapCodec<? extends LootItemConditionalFunction> codec() {
+		return CODEC;
+	}
 
 	protected ArrowCustomizeShaftFunction(List<LootItemCondition> list, Optional<WeightedList<Holder<Item>>> shaftMods, Optional<WeightedList<Holder<Item>>> tipMods,
 			Optional<WeightedList<Holder<Item>>> fletchingMods, Optional<WeightedList<Holder<Item>>> additionMods) {
@@ -49,11 +53,6 @@ public class ArrowCustomizeShaftFunction extends LootItemConditionalFunction {
 		this.tipMods = tipMods;
 		this.fletchingMods = fletchingMods;
 		this.additionMods = additionMods;
-	}
-
-	@Override
-	public LootItemFunctionType<ArrowCustomizeShaftFunction> getType() {
-		return ModLootItemFunctions.CUSTOMIZE_ARROWS;
 	}
 
 	@Override
@@ -126,5 +125,4 @@ public class ArrowCustomizeShaftFunction extends LootItemConditionalFunction {
 			return built.isEmpty() ? Optional.empty() : Optional.of(built);
 		}
 	}
-
 }

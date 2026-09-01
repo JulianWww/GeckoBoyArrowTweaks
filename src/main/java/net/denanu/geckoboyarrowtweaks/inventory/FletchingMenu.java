@@ -90,11 +90,11 @@ public class FletchingMenu extends ItemCombinerMenu {
 		}
 		ItemStack result_stack = new ItemStack(Items.ARROW, 8);
 
-		result_stack.set(ModDataComponents.ARROW_SHAFT, shaft.getItemHolder());
-		result_stack.set(ModDataComponents.ARROW_FLETCHING, fletching.getItemHolder());
+		result_stack.set(ModDataComponents.ARROW_SHAFT, shaft.typeHolder());
+		result_stack.set(ModDataComponents.ARROW_FLETCHING, fletching.typeHolder());
 
 		if (!tip.isEmpty()) {
-			result_stack.set(ModDataComponents.ARROW_TIP, tip.getItemHolder());
+			result_stack.set(ModDataComponents.ARROW_TIP, tip.typeHolder());
 		}
 		else {
 			result_stack.set(ModDataComponents.HAS_TIP, false);
@@ -105,7 +105,7 @@ public class FletchingMenu extends ItemCombinerMenu {
 				this.resultSlots.setItem(0, ItemStack.EMPTY);
 				return;
 			}
-			result_stack.set(ModDataComponents.ARROW_ADDITION, addition.getItemHolder());
+			result_stack.set(ModDataComponents.ARROW_ADDITION, addition.typeHolder());
 			if (addition.is(ModItemTags.POTIONS)) {
 				result_stack.set(DataComponents.POTION_CONTENTS, addition.get(DataComponents.POTION_CONTENTS));
 			}

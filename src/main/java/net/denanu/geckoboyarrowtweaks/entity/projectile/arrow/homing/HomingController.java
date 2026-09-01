@@ -4,7 +4,7 @@ package net.denanu.geckoboyarrowtweaks.entity.projectile.arrow.homing;
 import org.jetbrains.annotations.Nullable;
 
 import com.google.common.base.Function;
-import com.ibm.icu.impl.Pair;
+import com.mojang.datafixers.util.Pair;
 
 import net.denanu.geckoboyarrowtweaks.entity.projectile.arrow.CustomizableArrow;
 import net.denanu.geckoboyarrowtweaks.utils.Newton;
@@ -23,8 +23,8 @@ public class HomingController {
 		if (homingData == null) {
 			return;
 		}
-		Vec3 dist = homingData.first.subtract(arrow.position());
-		Vec3 vel = homingData.second;
+		Vec3 dist = homingData.getFirst().subtract(arrow.position());
+		Vec3 vel = homingData.getSecond();
 
 		double time = getTime(g, dist, vel, arrow.getDeltaMovement().lengthSqr());
 		if (time == Double.MAX_VALUE || time < 1) {

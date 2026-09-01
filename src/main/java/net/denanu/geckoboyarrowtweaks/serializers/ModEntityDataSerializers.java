@@ -4,7 +4,7 @@ import net.denanu.geckoboyarrowtweaks.GeckoBoyArrowTweaks;
 import net.denanu.geckoboyarrowtweaks.entity.projectile.arrow.ArrowComposition;
 import net.denanu.geckoboyarrowtweaks.entity.projectile.arrow.homing.HomingTarget;
 import net.denanu.geckoboyarrowtweaks.entity.projectile.arrow.homing.HomingTargetTypes;
-import net.fabricmc.fabric.api.object.builder.v1.entity.FabricTrackedDataRegistry;
+import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityDataRegistry;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.syncher.EntityDataSerializer;
 import net.minecraft.resources.Identifier;
@@ -17,7 +17,7 @@ public class ModEntityDataSerializers {
 
 
 	public static void registerSerializer(String type, EntityDataSerializer<?> entityDataSerializer) {
-		FabricTrackedDataRegistry.register(Identifier.fromNamespaceAndPath(GeckoBoyArrowTweaks.MOD_ID, type), entityDataSerializer);
+		FabricEntityDataRegistry.register(Identifier.fromNamespaceAndPath(GeckoBoyArrowTweaks.MOD_ID, type), entityDataSerializer);
 	}
 
 	static {

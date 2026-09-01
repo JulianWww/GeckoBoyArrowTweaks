@@ -21,7 +21,7 @@ import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.RenderLayerParent;
 import net.minecraft.client.renderer.entity.layers.RenderLayer;
-import net.minecraft.client.renderer.state.CameraRenderState;
+import net.minecraft.client.renderer.state.level.CameraRenderState;
 
 @Environment(EnvType.CLIENT)
 public class CustomizableArrowRenderer extends EntityRenderer<CustomizableArrow, CustomizableArrowRenderState> implements RenderLayerParent<CustomizableArrowRenderState, ArrowModel> {
@@ -62,7 +62,6 @@ public class CustomizableArrowRenderer extends EntityRenderer<CustomizableArrow,
 		return this.model;
 	}
 
-	@Override
 	public void submit(CustomizableArrowRenderState state, PoseStack poseStack, SubmitNodeCollector submitNodeCollector, CameraRenderState cameraRenderState) {
 		poseStack.pushPose();
 		poseStack.mulPose(Axis.YP.rotationDegrees(state.yRot - 90.0F));
@@ -74,5 +73,5 @@ public class CustomizableArrowRenderer extends EntityRenderer<CustomizableArrow,
 		}
 		poseStack.popPose();
 		super.submit(state, poseStack, submitNodeCollector, cameraRenderState);
-	}
+	}	
 }

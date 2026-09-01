@@ -35,8 +35,8 @@ public class SplashPotionModifier extends AbstractAoePotionModifier {
 
 						for (MobEffectInstance effectInstance : iterable) {
 							Holder<MobEffect> effect = effectInstance.getEffect();
-							if (effect.value().isInstantenous()) {
-								effect.value().applyInstantenousEffect(level, arrow, arrow.getOwner(), livingEntity, effectInstance.getAmplifier(), effectivity);
+							if (effect.value().isInstantaneous()) {
+								effect.value().applyInstantaneousEffect(level, arrow, arrow.getOwner(), livingEntity, effectInstance.getAmplifier(), effectivity);
 							} else {
 								int duration = effectInstance.mapDuration(ix -> (int)(effectivity * ix * durationScale + 0.5));
 								MobEffectInstance durationModifiedEffect = new MobEffectInstance(

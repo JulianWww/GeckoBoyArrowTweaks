@@ -1,7 +1,7 @@
 {
 	"required": true,
 	"package": "net.denanu.geckoboyarrowtweaks.mixin",
-	"compatibilityLevel": "JAVA_21",
+	"compatibilityLevel": "JAVA_25",
 	"mixins": [
 		"AbstractArrowAccessor",
 		"AbstractCowMixin",
@@ -10,6 +10,7 @@
 		"BoggedMixin",
 		"CreativeModeTabsMixin",
 		"CreativeModTabOutputMixin",
+		"LlamaMixin",
 		"ItemsMixin",
 		"MobMixin",
 		"ParchedMixin",

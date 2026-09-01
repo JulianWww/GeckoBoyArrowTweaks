@@ -28,15 +28,14 @@
 	"mixins": [
 		"geckoboyarrowtweaks.mixins.json",
 		{
-			"config": "geckoboyarrowtweaks.client.mixins.json",
+			"config": "geckoboyarrowtweaks.client.mixins.2.json",
 			"environment": "client"
 		}
 	],
 	"depends": {
-		"fabricloader": ">=0.18.4",
-		"minecraft": "~1.21.11",
-		"java": ">=21",
-		"fabric-api": "*",
-		"trinkets": ">=3.11.0-beta.2+1.21.11"
+		"fabricloader": ">=0.19.3",
+		"minecraft": "~26.2",
+		"java": ">=25",
+		"fabric-api": "*"
 	}
 }
