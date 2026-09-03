@@ -67,6 +67,7 @@ java {
 	targetCompatibility = JavaVersion.VERSION_25
 }
 
+project.archives_base_name = project.name + "_" + project.minecraft_version + "-" + project.mod_version
 jar {
 	def projectName = project.name
 	inputs.property "projectName", projectName
