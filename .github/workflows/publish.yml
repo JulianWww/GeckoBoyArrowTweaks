@@ -22,11 +22,12 @@ jobs:
           echo "NAME=$(cat gradle.properties | grep ^archives_base_name= | cut -c 20-)" >> $GITHUB_ENV
           echo "MC_VERSION=$(cat gradle.properties | grep ^minecraft_version= | cut -c 19-)" >> $GITHUB_ENV
           echo "CHANNEL=$(echo $VERSION | sed "s/^[0-9]/release/" | tr -d -c [a-z])" >> $GITHUB_ENV
-
-      - name: Read Changelog
-        id: changelog
-        run: |
-          echo "changes=$(cat ./PATCHNOTES.md)" >> $GITHUB_OUTPUT
+      
+      - name: Read file contents
+        uses: guibranco/github-file-reader-action-v2@latest
+        id: read_changes
+        with:
+          path: './PATCHNOTES.md'
       
       - uses: actions/download-artifact@v5
         with:
@@ -43,4 +44,4 @@ jobs:
           game-versions: ${{ env.MC_VERSION }}
           files: ${{ env.NAME }}-${{ env.VERSION }}+mc${{ env.MC_VERSION }}.jar
           channel: ${{ env.CHANNEL }}
-          changelog: ${{ steps.changelog.outputs.changes }}
+          changelog: ${{ steps.read_changes.outputs.contents }}
