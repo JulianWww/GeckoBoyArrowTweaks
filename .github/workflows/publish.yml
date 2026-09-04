@@ -26,7 +26,7 @@ jobs:
       - name: Read Changelog
         id: changelog
         run: |
-          cat ./PATCHNOTES.md >> $GITHUB_OUTPUT
+          echo "changes=$(cat ./PATCHNOTES.md)" >> $GITHUB_OUTPUT
       
       - uses: actions/download-artifact@v5
         with:
@@ -43,4 +43,4 @@ jobs:
           game-versions: ${{ env.MC_VERSION }}
           files: ${{ env.NAME }}-${{ env.VERSION }}+mc${{ env.MC_VERSION }}.jar
           channel: ${{ env.CHANNEL }}
-          changelog: ${{ steps.changelog.outputs.contents }}
+          changelog: ${{ steps.changelog.outputs.changes }}
