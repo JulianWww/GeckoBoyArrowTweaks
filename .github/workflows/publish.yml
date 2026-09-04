@@ -4,7 +4,11 @@
 # against bad commits.
 
 name: publish
-on: workflow_dispatch
+on: 
+  workflow_dispatch:
+    inputs:
+      changes:
+        required: true
 
 jobs:
   build:
@@ -41,4 +45,4 @@ jobs:
           game-versions: ${{ env.MC_VERSION }}
           files: ${{ env.NAME }}-${{ env.VERSION }}+mc${{ env.MC_VERSION }}.jar
           channel: ${{ env.CHANNEL }}
-          changelog: ${{ env.CHANGES }}
+          changelog: ${{ github.event.inputs.message }}
