@@ -26,10 +26,13 @@ jobs:
           echo "NAME=$(cat gradle.properties | grep ^archives_base_name= | cut -c 20-)" >> $GITHUB_ENV
           echo "MC_VERSION=$(cat gradle.properties | grep ^minecraft_version= | cut -c 19-)" >> $GITHUB_ENV
           echo "CHANNEL=$(echo $VERSION | sed "s/^[0-9]/release/" | tr -d -c [a-z])" >> $GITHUB_ENV
-      - name: prep changes
-        run: |
-          echo "CHANGES=$(cat PATCHNOTES.md)" >> $GITHUB_ENV
-          
+
+      - name: Read Changelog
+        id: changelog
+        uses: bewest/actions-read-file@v1 # Or use a standard run: echo "content<<EOF" >> $GITHUB_OUTPUT ...
+        with:
+          path: ./PATCHNOTES.md
+      
       - uses: actions/download-artifact@v5
         with:
           name: mod
@@ -45,4 +48,4 @@ jobs:
           game-versions: ${{ env.MC_VERSION }}
           files: ${{ env.NAME }}-${{ env.VERSION }}+mc${{ env.MC_VERSION }}.jar
           channel: ${{ env.CHANNEL }}
-          changelog: ${{ github.event.inputs.message }}
+          changelog: ${{ steps.changelog.outputs.contents }}
