@@ -2,7 +2,6 @@ package net.denanu.geckoboyarrowtweaks.entity.projectile.arrow.modifiers;
 
 import net.denanu.geckoboyarrowtweaks.entity.projectile.arrow.CustomizableArrow;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.entity.MoverType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
@@ -22,12 +21,13 @@ public class BouncyModifier extends DefaultArrowModifier {
 						rnd.nextFloat() * roughness,
 						rnd.nextFloat() * roughness
 						);
-		arrow.setDeltaMovement(
-				arrow.getDeltaMovement().add(normal
-						.scale(1.5).multiply(Math.abs(motion.x), Math.abs(motion.y), Math.abs(motion.z))
-						).scale(0.9)
-				);
-		arrow.move(MoverType.SELF, arrow.getDeltaMovement());
+		
+		Vec3 newMotion = motion.add(normal
+				.scale(2).multiply(Math.abs(motion.x), Math.abs(motion.y), Math.abs(motion.z))
+				).scale(0.9);
+		
+		arrow.setDeltaMovement(newMotion);
+		arrow.setPos(arrow.position().subtract(motion.scale(0.3/motion.length())));
 		return true;
 	}
 }
