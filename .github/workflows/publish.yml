@@ -27,7 +27,7 @@ jobs:
         with:
           name: mod
       - name: Rename build file
-        run: mv ${{ env.NAME }}-${{ env.VERSION }}.jar ${{ env.NAME }}-${{ env.VERSION }}+mc${{ env.MC_VERSION }}.jar      
+        run: mv ${{ env.NAME }}.jar ${{ env.NAME }}-${{ env.VERSION }}+mc${{ env.MC_VERSION }}.jar      
 
       - uses: cloudnode-pro/modrinth-publish@v2
         with:
