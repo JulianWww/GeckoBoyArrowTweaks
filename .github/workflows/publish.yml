@@ -4,11 +4,7 @@
 # against bad commits.
 
 name: publish
-on: 
-  workflow_dispatch:
-    inputs:
-      changes:
-        required: true
+on: workflow_dispatch
 
 jobs:
   build:
@@ -29,9 +25,10 @@ jobs:
 
       - name: Read Changelog
         id: changelog
-        uses: bewest/actions-read-file@v1 # Or use a standard run: echo "content<<EOF" >> $GITHUB_OUTPUT ...
-        with:
-          path: ./PATCHNOTES.md
+        run: |
+          echo "CHANGELOG_TEXT<<EOF" >> $GITHUB_OUTPUT
+          cat ./CHANGELOG.md >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
       
       - uses: actions/download-artifact@v5
         with:
