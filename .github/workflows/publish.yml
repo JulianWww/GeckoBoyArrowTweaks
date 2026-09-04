@@ -22,6 +22,8 @@ jobs:
           echo "NAME=$(cat gradle.properties | grep ^archives_base_name= | cut -c 20-)" >> $GITHUB_ENV
           echo "MC_VERSION=$(cat gradle.properties | grep ^minecraft_version= | cut -c 19-)" >> $GITHUB_ENV
           echo "CHANNEL=$(echo $VERSION | sed "s/^[0-9]/release/" | tr -d -c [a-z])" >> $GITHUB_ENV
+      - name: prep changes
+        run: |
           echo "CHANGES=$(cat PATCHNOTES.md)" >> $GITHUB_ENV
           
       - uses: actions/download-artifact@v5
