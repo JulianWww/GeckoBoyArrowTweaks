@@ -26,9 +26,7 @@ jobs:
       - name: Read Changelog
         id: changelog
         run: |
-          echo "CHANGELOG_TEXT<<EOF" >> $GITHUB_OUTPUT
           cat ./PATCHNOTES.md >> $GITHUB_OUTPUT
-          echo "EOF" >> $GITHUB_OUTPUT
       
       - uses: actions/download-artifact@v5
         with:
